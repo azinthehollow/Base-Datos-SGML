@@ -1,11 +1,11 @@
-drop table Devolucion;
-drop table Prestamo_Material;
-drop table Laboratorio_Material;
-drop table Material;
-drop table Laboratorio;
-drop table Prestamo;
-drop table Encargados;
-drop table Usuario;
+drop table Devolucion cascade constraints;
+drop table Prestamo_Material cascade constraints;
+drop table Laboratorio_Material cascade constraints;
+drop table Material cascade constraints;
+drop table Laboratorio cascade constraints;
+drop table Prestamo cascade constraints;
+drop table Encargados cascade constraints;
+drop table Usuario cascade constraints;
 
 
 
@@ -15,7 +15,7 @@ CREATE TABLE Encargados
 	Nombre               VARCHAR2(20) NULL ,
 	aPaterno             VARCHAR2(20) NULL ,
 	aMaterno             VARCHAR2(20) NULL ,
-	direccion            VARCHAR2(20) NULL 
+	direccion            VARCHAR2(50) NULL 
 );
 
 
@@ -25,7 +25,7 @@ ALTER TABLE Encargados
 CREATE TABLE Laboratorio
 (
 	idLaboratorio        INTEGER NOT NULL ,
-	nombre               VARCHAR2(20) NULL ,
+	nombre               VARCHAR2(25) NULL ,
 	clave                VARCHAR2(20) NULL ,
 	idEncargado          INTEGER NULL 
 );
@@ -38,7 +38,7 @@ ALTER TABLE Laboratorio
 CREATE TABLE Material
 (
 	idMaterial           INTEGER NOT NULL ,
-	descripcion          VARCHAR2(20) NULL 
+	descripcion          VARCHAR2(100) NULL 
 );
 
 
@@ -61,7 +61,7 @@ ALTER TABLE Laboratorio_Material
 CREATE TABLE Prestamo
 (
 	idPrestamo           INTEGER NOT NULL ,
-	descripcion          VARCHAR2(20) NULL ,
+	descripcion          VARCHAR2(100) NULL ,
 	idUsuario            INTEGER NULL ,
 	fecha                DATE NULL 
 );
@@ -101,7 +101,7 @@ CREATE TABLE Usuario
 	nombre               VARCHAR2(20) NULL ,
 	aPaterno             VARCHAR2(20) NULL ,
 	aMaterno             VARCHAR2(20) NULL ,
-	direccion            VARCHAR2(20) NULL ,
+	direccion            VARCHAR2(50) NULL ,
 	telefono             VARCHAR2(20) NULL 
 );
 

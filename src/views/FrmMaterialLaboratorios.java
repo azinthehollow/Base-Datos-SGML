@@ -120,8 +120,8 @@ public class FrmMaterialLaboratorios extends javax.swing.JFrame {
                                 .addComponent(jLabel4)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(comboMaterial, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtCantidad))
+                            .addComponent(txtCantidad)
+                            .addComponent(comboMaterial, 0, 90, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -129,9 +129,9 @@ public class FrmMaterialLaboratorios extends javax.swing.JFrame {
                                 .addComponent(lblCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
-                                .addGap(28, 28, 28)
-                                .addComponent(comboLaboratorios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(45, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(comboLaboratorios, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,6 +174,7 @@ public class FrmMaterialLaboratorios extends javax.swing.JFrame {
                             idMaterial,
                             idLab,
                             cantidad));
+            
             JOptionPane.showMessageDialog(rootPane, "Agregado exitosamente.");
             txtCantidad.setText(BaseModel.VACIO);
 
