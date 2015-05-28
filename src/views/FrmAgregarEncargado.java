@@ -162,7 +162,7 @@ public class FrmAgregarEncargado extends javax.swing.JFrame {
             String nombre = txtNombre.getText();
             String apaterno = txtApaterno.getText();
             String amaterno = txtAmaterno.getText();
-            String direccion = txtEncargado.getText();
+            String direccion = txtDireccion.getText();
             
             Materiales.executeQuery(OracleUtils.getDBConexion(), 
                     String.format("insert into encargados values(%s, '%s', '%s', '%s', '%s')", 
