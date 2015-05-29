@@ -30,7 +30,8 @@ import utils.OracleUtils;
 public class FrmDevolucion extends javax.swing.JFrame {
 
     List<Usuario> usuarios = (List<Usuario>) Usuarios.select(OracleUtils.getDBConexion(), "select idusuario, nombre from usuario", Usuario.class);
-    List<Prestamo> prestamos = (List<Prestamo>) Prestamos.select(OracleUtils.getDBConexion(), "select * from prestamo", Prestamo.class);
+    List<Prestamo> prestamos = (List<Prestamo>) Prestamos.select(OracleUtils.getDBConexion(), "select * from prestamo where idPrestamo not in(select idPrestamo from devolucion)", Prestamo.class);
+    List<Devoluciones> devo= (List<Devoluciones>) Devoluciones.select(OracleUtils.getDBConexion(), "select * from devolucion",Devoluciones.class);
 
     /**
      * Creates new form FrmProveedores
@@ -113,9 +114,9 @@ public class FrmDevolucion extends javax.swing.JFrame {
                                 .addComponent(lblDesc)
                                 .addComponent(jButton1)
                                 .addComponent(lblDescri)))
-                        .addGap(85, 85, 85)
+                        .addGap(212, 212, 212)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,11 +145,12 @@ public class FrmDevolucion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarMaterialesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarMaterialesActionPerformed
-
-        Random r = new Random();
+Random r = new Random();
         Integer id = r.nextInt(100);
-        BigDecimal idPrestamo = prestamos.get(comboPrestamos.getSelectedIndex()).getIdprestamo();
         
+        
+        BigDecimal idPrestamo = prestamos.get(comboPrestamos.getSelectedIndex()).getIdprestamo();
+        //int id = Integer.parseInt(inTxtDevo.getText());
             Devoluciones.executeQuery(OracleUtils.getDBConexion(),
                     String.format("insert into devolucion values(%s, %s, '%s')",
                             id,
