@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 /**
  *
- * @author Alejandro Escobedo
+ * @author Ricardo Peña
  */
 public class OracleUtils {
     

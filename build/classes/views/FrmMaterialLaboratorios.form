@@ -27,10 +27,6 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                      <Component id="btnAgregarMateriales" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" pref="227" max="-2" attributes="0"/>
                   </Group>
@@ -63,6 +59,12 @@
                           </Group>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                      <Component id="btnAgregarMateriales" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="bttnActu" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace pref="11" max="32767" attributes="0"/>
           </Group>
@@ -88,7 +90,10 @@
               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
               <Component id="lblCantidad" min="-2" pref="32" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Component id="btnAgregarMateriales" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnAgregarMateriales" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bttnActu" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -102,7 +107,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAgregarMateriales">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Actualizar almacen"/>
+        <Property name="text" type="java.lang.String" value="Agregar Material"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarMaterialesActionPerformed"/>
@@ -155,6 +160,14 @@
     <Component class="javax.swing.JTextField" name="txtCantidad">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCantidadActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="bttnActu">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Actualizar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnActuActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

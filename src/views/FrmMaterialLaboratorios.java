@@ -66,13 +66,14 @@ public class FrmMaterialLaboratorios extends javax.swing.JFrame {
         comboLaboratorios = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
+        bttnActu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Material Laboratorio");
 
         jLabel3.setText("Material");
 
-        btnAgregarMateriales.setText("Actualizar almacen");
+        btnAgregarMateriales.setText("Agregar Material");
         btnAgregarMateriales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarMaterialesActionPerformed(evt);
@@ -98,15 +99,19 @@ public class FrmMaterialLaboratorios extends javax.swing.JFrame {
             }
         });
 
+        bttnActu.setText("Actualizar");
+        bttnActu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnActuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(btnAgregarMateriales))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -130,7 +135,12 @@ public class FrmMaterialLaboratorios extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
-                                .addComponent(comboLaboratorios, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(comboLaboratorios, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(btnAgregarMateriales)
+                        .addGap(39, 39, 39)
+                        .addComponent(bttnActu)))
                 .addContainerGap(11, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -151,7 +161,9 @@ public class FrmMaterialLaboratorios extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addComponent(lblCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(btnAgregarMateriales)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregarMateriales)
+                    .addComponent(bttnActu))
                 .addContainerGap())
         );
 
@@ -162,31 +174,62 @@ public class FrmMaterialLaboratorios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarMaterialesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarMaterialesActionPerformed
-        if ((LaboratorioMaterial.isNumeric(txtCantidad.getText()))) {
-
+   if ((LaboratorioMaterial.isNumeric(txtCantidad.getText()))) {
             
-            BigDecimal idMaterial = materiales.get(comboLaboratorios.getSelectedIndex()).getIdmaterial();
-            BigDecimal idLab = laboratorios.get(comboMaterial.getSelectedIndex()).getIdlaboratorio();
+            BigDecimal idMaterial = materiales.get(comboMaterial.getSelectedIndex()).getIdmaterial();
+            BigDecimal idLab = laboratorios.get(comboLaboratorios.getSelectedIndex()).getIdlaboratorio();
             String cantidad = txtCantidad.getText();
             
             Materiales.executeQuery(OracleUtils.getDBConexion(),
-                    String.format("insert into laboratorio_material values(%s, '%s', %s)",
-                            idMaterial,
+                    String.format("insert into laboratorio_material values(%s, %s, %s)",
                             idLab,
-                            cantidad));
+                            idMaterial,
+                            cantidad
+                    ));
             
+            System.out.println("idMaterial = "+ idMaterial);
+            System.out.println("idLab = "+ idLab);
+            System.out.println("cantidad = "+ cantidad);
             JOptionPane.showMessageDialog(rootPane, "Agregado exitosamente.");
             txtCantidad.setText(BaseModel.VACIO);
 
         } else {
             JOptionPane.showMessageDialog(rootPane, "Valores no validos.");
         }
-
+   
     }//GEN-LAST:event_btnAgregarMaterialesActionPerformed
 
     private void txtCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCantidadActionPerformed
+
+    private void bttnActuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnActuActionPerformed
+
+         if ((LaboratorioMaterial.isNumeric(txtCantidad.getText()))) {
+            
+            BigDecimal idMaterial = materiales.get(comboMaterial.getSelectedIndex()).getIdmaterial();
+            BigDecimal idLab = laboratorios.get(comboLaboratorios.getSelectedIndex()).getIdlaboratorio();
+            String cantidad = txtCantidad.getText();
+            
+            Materiales.executeQuery(OracleUtils.getDBConexion(),
+                    String.format("UPDATE LABORATORIO_MATERIAL set EXISTENCIA = %s WHERE IDLABORATORIO = %s AND IDMATERIAL = %s",
+                            cantidad,
+                            idLab,
+                            idMaterial
+                    ));
+            
+            System.out.println("idMaterial = "+ idMaterial);
+            System.out.println("idLab = "+ idLab);
+            System.out.println("cantidad = "+ cantidad);
+            JOptionPane.showMessageDialog(rootPane, "Actualizado Correctamente.");
+            txtCantidad.setText(BaseModel.VACIO);
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Valores no validos.");
+        }
+        
+        
+    }//GEN-LAST:event_bttnActuActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -226,6 +269,7 @@ public class FrmMaterialLaboratorios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarMateriales;
+    private javax.swing.JButton bttnActu;
     private javax.swing.JComboBox comboLaboratorios;
     private javax.swing.JComboBox comboMaterial;
     private javax.swing.JLabel jLabel1;

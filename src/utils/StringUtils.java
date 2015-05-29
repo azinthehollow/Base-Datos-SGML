@@ -2,7 +2,7 @@ package utils;
 
 /**
  * Utilidades para Strings
- * @author Alejandro Escobedo
+ * @author Ricardo Peña
  */
 public class StringUtils {
     

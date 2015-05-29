@@ -33,7 +33,7 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
     List<Material> materiales = (List<Material>) Materiales.select(OracleUtils.getDBConexion(), "select * from material", Material.class);
     List<Laboratorio> laboratorios = (List<Laboratorio>) Laboratorios.select(OracleUtils.getDBConexion(), "select * from laboratorio", Laboratorio.class);
     List<LaboratorioMaterial> labmat = (List<LaboratorioMaterial>) LaboratorioMateriales.select(OracleUtils.getDBConexion(), "select * from laboratorio_material", LaboratorioMaterial.class);
-    
+
     String material;
     String laboratorio;
     Integer index;
@@ -44,7 +44,7 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
      * @throws java.lang.Exception
      */
     public FrmPrestamosMaterial() throws Exception {
-           /*Creacion fondo*/
+        /*Creacion fondo*/
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
         PanelImagen p = new PanelImagen();
@@ -52,12 +52,11 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
         p.setLayout(new BorderLayout(0, 0));
         setContentPane(p);
 
-        
         initComponents();
         Laboratorios.fillCombo(comboLabs, laboratorios, "nombre", Laboratorio.class);
         Materiales.fillCombo(comboMateriales, materiales, "descripcion", Material.class);
         Prestamos.fillCombo(comboPrestamos, prestamos, "descripcion", Prestamo.class);
-                }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -80,6 +79,8 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         comboLabs = new javax.swing.JComboBox();
         btnAgregar = new javax.swing.JButton();
+        intxtCant = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pretamos Material");
@@ -127,6 +128,14 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
             }
         });
 
+        intxtCant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                intxtCantActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Cantidad");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -162,8 +171,12 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel5)
                         .addGap(71, 71, 71)
-                        .addComponent(comboLabs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(63, Short.MAX_VALUE))
+                        .addComponent(comboLabs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(intxtCant, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,7 +192,9 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(comboLabs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboLabs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(intxtCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,32 +215,26 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnChecarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChecarActionPerformed
-            BigDecimal idLaboratorio = laboratorios.get(comboLabs.getSelectedIndex()).getIdlaboratorio();
-            BigDecimal idMaterial = materiales.get(comboMateriales.getSelectedIndex()).getIdmaterial();
-            
-            labmat.stream().forEach((labmaterial) -> {
-                
-                if ((labmaterial.getIdlaboratorio().equals(idLaboratorio))
-                        && ((labmaterial.getIdmaterial().equals(idMaterial)))) {
-                    lblCantidad.setText("" + labmaterial.getExistencia());
-                } 
-            });
-            
-            if (lblCantidad.getText().equals("")) {
-                JOptionPane.showMessageDialog(rootPane, "Favor de confirmar primero la canttidad del material y su ubicacion");
+        BigDecimal idLaboratorio = laboratorios.get(comboLabs.getSelectedIndex()).getIdlaboratorio();
+        BigDecimal idMaterial = materiales.get(comboMateriales.getSelectedIndex()).getIdmaterial();
+
+        labmat.stream().forEach((labmaterial) -> {
+
+            if ((labmaterial.getIdlaboratorio().equals(idLaboratorio))
+                    && ((labmaterial.getIdmaterial().equals(idMaterial)))) {
+                lblCantidad.setText("" + labmaterial.getExistencia());
+            }
+        });
+
+        if (lblCantidad.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Favor de confirmar primero la cantidad del material y su ubicacion");
         }
 
 
     }//GEN-LAST:event_btnChecarActionPerformed
 
     private void comboMaterialesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboMaterialesItemStateChanged
-//        prestMat.stream().forEach((labmateria) -> {
-//
-//                if ((labmateria.getIdlaboratorio().equals(comboLabs.getSelectedItem()))
-//                        && ((labmateria.getIdmaterial().equals(comboMateriales.getSelectedItem())))) {
-//                    lblCantidad.setText("" + labmateria.getExistencia());
-//                }
-//        });
+
     }//GEN-LAST:event_comboMaterialesItemStateChanged
 
     private void comboMaterialesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboMaterialesActionPerformed
@@ -233,28 +242,50 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
     }//GEN-LAST:event_comboMaterialesActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-            BigDecimal idPrestamo = prestamos.get(comboPrestamos.getSelectedIndex()).getIdprestamo();
-            System.out.println("idPrestamo = " + idPrestamo);
-            BigDecimal idLaboratorio = laboratorios.get(comboLabs.getSelectedIndex()).getIdlaboratorio();
-            System.out.println("idLaboratorio = " + idLaboratorio);
-            BigDecimal idMaterial = materiales.get(comboMateriales.getSelectedIndex()).getIdmaterial();
-        System.out.println("idMaterial = " + idMaterial);
-            
-        
-        if (PrestamoMaterial.isNumeric(lblCantidad.getText()) && Integer.parseInt(lblCantidad.getText()) > 0)  {
-            
-                    Materiales.executeQuery(OracleUtils.getDBConexion(),
-                    String.format("insert into prestamo_material values(%s, %s, %s)",
-                            idPrestamo,
-                            idMaterial,
-                            idLaboratorio));
-            JOptionPane.showMessageDialog(rootPane, "Agregado exitosamente.");
 
+        BigDecimal idPrestamo = prestamos.get(comboPrestamos.getSelectedIndex()).getIdprestamo();
+        System.out.println("idPrestamo = " + idPrestamo);
+        BigDecimal idLaboratorio = laboratorios.get(comboLabs.getSelectedIndex()).getIdlaboratorio();
+        System.out.println("idLaboratorio = " + idLaboratorio);
+        BigDecimal idMaterial = materiales.get(comboMateriales.getSelectedIndex()).getIdmaterial();
+        System.out.println("idMaterial = " + idMaterial);
+        String cantidad = intxtCant.getText();
+
+        if (PrestamoMaterial.isNumeric(lblCantidad.getText()) && Integer.parseInt(lblCantidad.getText()) > 0) {
+
+            int cantidadNew = Integer.parseInt(lblCantidad.getText()) - Integer.parseInt(cantidad);
+            System.out.println("CantNew= " + cantidadNew);
+            if (cantidadNew >= 0) {
+                Materiales.executeQuery(OracleUtils.getDBConexion(),
+                        String.format("insert into prestamo_material values(%s, %s, %s,%s)",
+                                idPrestamo,
+                                idMaterial,
+                                idLaboratorio,
+                                cantidad
+                        ));
+                cantidad = Integer.toString(cantidadNew);
+                Materiales.executeQuery(OracleUtils.getDBConexion(),
+                        String.format("UPDATE LABORATORIO_MATERIAL set EXISTENCIA = %s WHERE idLaboratorio = %s AND idMaterial = %s",
+                                cantidad,
+                                idLaboratorio,
+                                idMaterial
+                        ));
+                System.out.println("Cant= " + cantidad);
+                lblCantidad.setText(cantidad);
+                JOptionPane.showMessageDialog(rootPane, "Agregado exitosamente.");
+
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Son demasiados materiales");
+            }
         } else {
             JOptionPane.showMessageDialog(rootPane, "No hay suficiente.");
-}
+        }
 
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void intxtCantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_intxtCantActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_intxtCantActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -298,11 +329,13 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
     private javax.swing.JComboBox comboLabs;
     private javax.swing.JComboBox comboMateriales;
     private javax.swing.JComboBox comboPrestamos;
+    private javax.swing.JTextField intxtCant;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lblCantidad;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables

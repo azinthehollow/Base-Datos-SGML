@@ -16,7 +16,7 @@ import utils.StringUtils;
 
 /**
  * Clase que sirve como controlador Base para hacer consultas utilizando Reflection.
- * @author Alejandro Escobedo
+ * @author Ricardo Peña
  */
 public class BaseController {
 

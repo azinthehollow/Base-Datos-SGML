@@ -50,7 +50,7 @@ CREATE TABLE Laboratorio_Material
 (
 	idLaboratorio        INTEGER NOT NULL ,
 	idMaterial           INTEGER NOT NULL ,
-	existencia           Number NULL 
+	existencia           INTEGER NULL
 );
 
 
@@ -75,7 +75,8 @@ CREATE TABLE Prestamo_Material
 (
 	idPrestamo           INTEGER NOT NULL ,
 	idMaterial           INTEGER NOT NULL ,
-	idLaboratorio        INTEGER NOT NULL 
+	idLaboratorio        INTEGER NOT NULL,
+        cantidad        INTEGER NOT NULL
 );
 
 
