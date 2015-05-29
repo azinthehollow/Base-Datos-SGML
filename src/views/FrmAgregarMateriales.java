@@ -51,6 +51,7 @@ public class FrmAgregarMateriales extends javax.swing.JFrame {
         txtClave = new javax.swing.JTextField();
         txtDescripcion = new javax.swing.JTextField();
         btnAgregarMateriales = new javax.swing.JButton();
+        bttnAyuda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Agregar Materiales");
@@ -64,6 +65,13 @@ public class FrmAgregarMateriales extends javax.swing.JFrame {
         btnAgregarMateriales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarMaterialesActionPerformed(evt);
+            }
+        });
+
+        bttnAyuda.setText("Ayuda");
+        bttnAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnAyudaActionPerformed(evt);
             }
         });
 
@@ -85,13 +93,17 @@ public class FrmAgregarMateriales extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(bttnAyuda)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addComponent(bttnAyuda)
+                .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -99,9 +111,9 @@ public class FrmAgregarMateriales extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAgregarMateriales, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -129,6 +141,10 @@ public class FrmAgregarMateriales extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnAgregarMaterialesActionPerformed
+
+    private void bttnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnAyudaActionPerformed
+        JOptionPane.showMessageDialog(rootPane, "Esta ventana te permitira agregar materiales, solo rellena los campos que se te piden.\nLa clave la tienes que asignar tu o la empresa\n", "Ayuda", WIDTH);
+    }//GEN-LAST:event_bttnAyudaActionPerformed
   /**
      * @param args the command line arguments
      */
@@ -166,6 +182,7 @@ public class FrmAgregarMateriales extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarMateriales;
+    private javax.swing.JButton bttnAyuda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField txtClave;

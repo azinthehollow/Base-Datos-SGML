@@ -56,6 +56,7 @@ public class FrmAgregarEncargado extends javax.swing.JFrame {
         txtDireccion = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtAmaterno = new javax.swing.JTextField();
+        bttnAyuda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Agregar Encargado");
@@ -81,6 +82,13 @@ public class FrmAgregarEncargado extends javax.swing.JFrame {
         txtAmaterno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAmaternoActionPerformed(evt);
+            }
+        });
+
+        bttnAyuda.setText("Ayuda");
+        bttnAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnAyudaActionPerformed(evt);
             }
         });
 
@@ -119,11 +127,15 @@ public class FrmAgregarEncargado extends javax.swing.JFrame {
                         .addGap(73, 73, 73)
                         .addComponent(btnAgregarMateriales, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(24, 24, 24))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(bttnAyuda)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addComponent(bttnAyuda)
+                .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -194,6 +206,10 @@ public class FrmAgregarEncargado extends javax.swing.JFrame {
     private void txtAmaternoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmaternoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAmaternoActionPerformed
+
+    private void bttnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnAyudaActionPerformed
+        JOptionPane.showMessageDialog(rootPane, "Esta ventana te permitira agregar encargados para los laboratorios.\nLa clave la tienes que asignar tu o la empresa\n", "Ayuda", WIDTH);
+    }//GEN-LAST:event_bttnAyudaActionPerformed
   /**
      * @param args the command line arguments
      */
@@ -231,6 +247,7 @@ public class FrmAgregarEncargado extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarMateriales;
+    private javax.swing.JButton bttnAyuda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

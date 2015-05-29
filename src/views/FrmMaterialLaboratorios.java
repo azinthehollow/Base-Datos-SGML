@@ -67,6 +67,7 @@ public class FrmMaterialLaboratorios extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
         bttnActu = new javax.swing.JButton();
+        bttnAyuda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Material Laboratorio");
@@ -107,6 +108,13 @@ public class FrmMaterialLaboratorios extends javax.swing.JFrame {
             }
         });
 
+        bttnAyuda.setText("Ayuda");
+        bttnAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnAyudaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -136,13 +144,16 @@ public class FrmMaterialLaboratorios extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
-                                .addComponent(comboLaboratorios, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(btnAgregarMateriales)
-                        .addGap(39, 39, 39)
-                        .addComponent(bttnActu)))
+                                .addComponent(comboLaboratorios, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(11, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(btnAgregarMateriales)
+                .addGap(18, 18, 18)
+                .addComponent(bttnActu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bttnAyuda)
+                .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,7 +175,8 @@ public class FrmMaterialLaboratorios extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregarMateriales)
-                    .addComponent(bttnActu))
+                    .addComponent(bttnActu)
+                    .addComponent(bttnAyuda))
                 .addContainerGap())
         );
 
@@ -231,6 +243,10 @@ public class FrmMaterialLaboratorios extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_bttnActuActionPerformed
+
+    private void bttnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnAyudaActionPerformed
+        JOptionPane.showMessageDialog(rootPane, "Esta ventana te permitira agregar un material a un laboratorio, asi como la cantidad de este.\nEl material y el laboratorio deben de existir\nAl hacer una devolucion de un material debes de venir a esta ventana y actualizar de nuevo el inventario", "Ayuda", WIDTH);
+    }//GEN-LAST:event_bttnAyudaActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -271,6 +287,7 @@ public class FrmMaterialLaboratorios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarMateriales;
     private javax.swing.JButton bttnActu;
+    private javax.swing.JButton bttnAyuda;
     private javax.swing.JComboBox comboLaboratorios;
     private javax.swing.JComboBox comboMaterial;
     private javax.swing.JLabel jLabel1;

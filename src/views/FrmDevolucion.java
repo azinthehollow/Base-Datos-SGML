@@ -68,6 +68,7 @@ public class FrmDevolucion extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         lblDescri = new javax.swing.JLabel();
         lblDesc = new javax.swing.JLabel();
+        bttnAyuda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Prestamos");
@@ -95,6 +96,13 @@ public class FrmDevolucion extends javax.swing.JFrame {
 
         lblDesc.setText("Descripcion");
 
+        bttnAyuda.setText("Ayuda");
+        bttnAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnAyudaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,8 +122,13 @@ public class FrmDevolucion extends javax.swing.JFrame {
                                 .addComponent(lblDesc)
                                 .addComponent(jButton1)
                                 .addComponent(lblDescri)))
-                        .addGap(212, 212, 212)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(212, 212, 212)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(86, 86, 86)
+                                .addComponent(bttnAyuda)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -136,7 +149,9 @@ public class FrmDevolucion extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblDescri, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnAgregarMateriales, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregarMateriales, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttnAyuda))
                 .addContainerGap())
         );
 
@@ -180,6 +195,10 @@ public class FrmDevolucion extends javax.swing.JFrame {
         System.out.println("descripcion = " + descripcion);
         lblDescri.setText(descripcion);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void bttnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnAyudaActionPerformed
+        JOptionPane.showMessageDialog(rootPane, "Esta ventana te permitira hacer una devolucion asi como ver la descripcion del prestamo.\nEl prestamo debe de existir y no tener el status completado\nTienes que actualizar el inventario a mano en la ventana de Agregar Material a laboratorio", "Ayuda", WIDTH);
+    }//GEN-LAST:event_bttnAyudaActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -219,6 +238,7 @@ public class FrmDevolucion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarMateriales;
+    private javax.swing.JButton bttnAyuda;
     private javax.swing.JComboBox comboPrestamos;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

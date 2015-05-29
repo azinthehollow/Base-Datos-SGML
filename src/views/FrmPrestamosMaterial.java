@@ -82,6 +82,7 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
         btnAgregar = new javax.swing.JButton();
         intxtCant = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        bttnAyuda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pretamos Material");
@@ -138,6 +139,13 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
 
         jLabel6.setText("Cantidad");
 
+        bttnAyuda.setText("Ayuda");
+        bttnAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnAyudaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -168,7 +176,9 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
                                     .addComponent(jLabel4)
                                     .addComponent(btnChecar))
                                 .addGap(18, 18, 18)
-                                .addComponent(lblCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(lblCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(bttnAyuda))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel5)
@@ -178,7 +188,7 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(intxtCant, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,7 +216,8 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnChecar)
-                            .addComponent(btnAgregar))))
+                            .addComponent(btnAgregar)
+                            .addComponent(bttnAyuda))))
                 .addGap(20, 20, 20))
         );
 
@@ -289,6 +300,10 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
     private void intxtCantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_intxtCantActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_intxtCantActionPerformed
+
+    private void bttnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnAyudaActionPerformed
+        JOptionPane.showMessageDialog(rootPane, "Esta ventana te agregar material a un prestamo, asi como rrevisar las existencias del material y actualizar el inventario.\nEl prestamo, material y laboratorio deben de existir para poder realizar esta acción\nSi no queda mas material no te permitira añadirlo al prestamo o si excedes la cantidad en existencia", "Ayuda", WIDTH);
+    }//GEN-LAST:event_bttnAyudaActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -329,6 +344,7 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnChecar;
+    private javax.swing.JButton bttnAyuda;
     private javax.swing.JComboBox comboLabs;
     private javax.swing.JComboBox comboMateriales;
     private javax.swing.JComboBox comboPrestamos;
