@@ -145,20 +145,32 @@ public class FrmDevolucion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarMaterialesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarMaterialesActionPerformed
-Random r = new Random();
-        Integer id = r.nextInt(100);
-        
-        
-        BigDecimal idPrestamo = prestamos.get(comboPrestamos.getSelectedIndex()).getIdprestamo();
-        //int id = Integer.parseInt(inTxtDevo.getText());
+        try {
+            Random r = new Random();
+            Integer id = r.nextInt(100);
+            
+            
+            BigDecimal idPrestamo = prestamos.get(comboPrestamos.getSelectedIndex()).getIdprestamo();
+            //int id = Integer.parseInt(inTxtDevo.getText());
             Devoluciones.executeQuery(OracleUtils.getDBConexion(),
                     String.format("insert into devolucion values(%s, %s, '%s')",
                             id,
                             idPrestamo,
                             BaseModel.COMPLETADO));
+            
+          /*  Materiales.executeQuery(OracleUtils.getDBConexion(),
+                        String.format("UPDATE LABORATORIO_MATERIAL set EXISTENCIA = %s WHERE idLaboratorio = %s AND idMaterial = %s",
+                                cantidad,
+                                idLaboratorio,
+                                idMaterial
+                        ));*/
             JOptionPane.showMessageDialog(rootPane, "Devuelto exitosamente.");
             lblDescri.setText(BaseModel.VACIO);
-
+            List<Prestamo> prestamos = (List<Prestamo>) Prestamos.select(OracleUtils.getDBConexion(), "select * from prestamo where idPrestamo not in(select idPrestamo from devolucion)", Prestamo.class);
+            Prestamos.fillCombo(comboPrestamos, prestamos, "idprestamo", Prestamo.class);
+        } catch (Exception ex) {
+            Logger.getLogger(FrmDevolucion.class.getName()).log(Level.SEVERE, null, ex);
+        }
       
 
     }//GEN-LAST:event_btnAgregarMaterialesActionPerformed
