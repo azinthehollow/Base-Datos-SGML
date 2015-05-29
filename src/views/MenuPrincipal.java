@@ -51,10 +51,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         btnDevolucion = new javax.swing.JButton();
         btnDevolucion1 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        bttnReporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal");
+        setResizable(false);
 
         panel.setOpaque(false);
 
@@ -146,20 +147,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setText("Rerporte");
+        bttnReporte.setText("Reporte");
+        bttnReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnReporteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(57, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton5)
+                    .addComponent(bttnReporte)
                     .addComponent(btnDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDevolucion1)
-                    .addComponent(jButton6))
-                .addContainerGap(159, Short.MAX_VALUE))
+                    .addComponent(btnDevolucion1))
+                .addGap(36, 36, 36))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,10 +174,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(jButton5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDevolucion1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnDevolucion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6)
+                .addComponent(btnDevolucion)
+                .addGap(11, 11, 11)
+                .addComponent(bttnReporte)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -196,7 +202,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
@@ -271,6 +277,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnLabActionPerformed
 
+    private void bttnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnReporteActionPerformed
+           try {
+            Reporte frmReporteAdd = new Reporte();
+            frmReporteAdd.setVisible(true);
+        } catch (Exception ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bttnReporteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -308,12 +323,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnDevolucion;
     private javax.swing.JButton btnDevolucion1;
     private javax.swing.JButton btnLab;
+    private javax.swing.JButton bttnReporte;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables

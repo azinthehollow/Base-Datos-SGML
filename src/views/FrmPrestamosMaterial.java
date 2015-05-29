@@ -1,5 +1,6 @@
 package views;
 
+import controllers.Devoluciones;
 import controllers.LaboratorioMateriales;
 import controllers.Laboratorios;
 import controllers.Materiales;
@@ -84,6 +85,7 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pretamos Material");
+        setResizable(false);
 
         jLabel3.setText("Prestamo");
 
@@ -272,6 +274,7 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
                         ));
                 System.out.println("Cant= " + cantidad);
                 lblCantidad.setText(cantidad);
+             
                 JOptionPane.showMessageDialog(rootPane, "Agregado exitosamente.");
 
             }else{

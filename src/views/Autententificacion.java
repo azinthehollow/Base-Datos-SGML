@@ -50,6 +50,7 @@ public class Autententificacion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Inicio");
+        setResizable(false);
 
         jLabel1.setText("Usuario");
 

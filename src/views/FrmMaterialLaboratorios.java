@@ -70,6 +70,7 @@ public class FrmMaterialLaboratorios extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Material Laboratorio");
+        setResizable(false);
 
         jLabel3.setText("Material");
 
