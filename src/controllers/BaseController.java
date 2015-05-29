@@ -1,5 +1,6 @@
 package controllers;
 
+import java.awt.Label;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.Connection;
@@ -103,6 +104,28 @@ public class BaseController {
         }
     });
 }
+  /**
+     * Metodo que llena un lbl con los elementos de una lista, utilizando el getter del val de la clase.
+     * @param combo
+     * @param elementos
+     * @param val
+     * @param clase
+     * @throws Exception 
+     */
+    public static void fillLbl(Label Etiqu, List<?> elementos, String val, Class clase) throws Exception{
+//    Etiqu.remove(null);
+    
+    String methodName = String.format("get%s", StringUtils.capitalize(val));
+    Method method = clase.getDeclaredMethod(methodName);
+        
+        elementos.stream().forEach((elemento) -> {
 
+        try {
+            Etiqu.setText((String) method.invoke(elemento, new Object[0]));
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
+            Logger.getLogger(BaseController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    });
+}
     
 }

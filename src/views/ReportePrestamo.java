@@ -30,7 +30,7 @@ import utils.OracleUtils;
  *
  * @author Ricardo
  */
-public class Reporte extends javax.swing.JFrame {
+public class ReportePrestamo extends javax.swing.JFrame {
 
    static Connection cn;
  static Statement s;
@@ -39,7 +39,7 @@ public class Reporte extends javax.swing.JFrame {
     /**
      * Creates new form Reporte
      */
-    public Reporte() {
+    public ReportePrestamo() {
 
         setBounds(100, 100, 450, 300);
         PanelImagen p = new PanelImagen();
@@ -83,7 +83,7 @@ public class Reporte extends javax.swing.JFrame {
         lblStatus.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Reporte Devoluciones");
+        setTitle("Reporte Prestamos");
         setPreferredSize(new java.awt.Dimension(640, 480));
         setResizable(false);
 
@@ -91,7 +91,7 @@ public class Reporte extends javax.swing.JFrame {
 
         lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("Reporte Devoluciones");
+        lblTitulo.setText("Reporte Prestamo");
         lblTitulo.setToolTipText("");
         topPanel.add(lblTitulo);
 
@@ -108,6 +108,7 @@ public class Reporte extends javax.swing.JFrame {
 
             }
         ));
+        tblResumen.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
         tblResumen.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tblResumen.setEnabled(false);
         tblResumen.setFocusable(false);
@@ -149,7 +150,7 @@ try {
             //Para ejecutar la consulta
             s = cn.createStatement();
             //Ejecutamos la consulta y los datos lo almacenamos en un ResultSet
-             rs = s.executeQuery("select * from devolucion");
+             rs = s.executeQuery("select * from prestamo");
             //Obteniendo la informacion de las columnas que estan siendo consultadas
             ResultSetMetaData rsMd = rs.getMetaData();
             //La cantidad de columnas que tiene la consulta
@@ -193,20 +194,21 @@ try {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportePrestamo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportePrestamo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportePrestamo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportePrestamo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Reporte().setVisible(true);
+                new ReportePrestamo().setVisible(true);
             }
         });
     }

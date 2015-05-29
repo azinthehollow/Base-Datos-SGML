@@ -146,6 +146,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="57" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="bttnReportePre" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton5" min="-2" max="-2" attributes="0"/>
                       <Component id="bttnReporte" min="-2" max="-2" attributes="0"/>
                       <Component id="btnDevolucion" min="-2" pref="138" max="-2" attributes="0"/>
@@ -163,10 +164,11 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnDevolucion1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Component id="bttnReportePre" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="btnDevolucion" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="bttnReporte" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="18" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -198,10 +200,18 @@
         </Component>
         <Component class="javax.swing.JButton" name="bttnReporte">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Reporte"/>
+            <Property name="text" type="java.lang.String" value="Reporte Devolucion"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnReporteActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="bttnReportePre">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Reporte Prestamo"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnReportePreActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

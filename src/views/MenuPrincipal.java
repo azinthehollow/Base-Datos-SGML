@@ -52,6 +52,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnDevolucion = new javax.swing.JButton();
         btnDevolucion1 = new javax.swing.JButton();
         bttnReporte = new javax.swing.JButton();
+        bttnReportePre = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal");
@@ -147,10 +148,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        bttnReporte.setText("Reporte");
+        bttnReporte.setText("Reporte Devolucion");
         bttnReporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bttnReporteActionPerformed(evt);
+            }
+        });
+
+        bttnReportePre.setText("Reporte Prestamo");
+        bttnReportePre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnReportePreActionPerformed(evt);
             }
         });
 
@@ -161,6 +169,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(57, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bttnReportePre)
                     .addComponent(jButton5)
                     .addComponent(bttnReporte)
                     .addComponent(btnDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,10 +184,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDevolucion1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bttnReportePre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnDevolucion)
-                .addGap(11, 11, 11)
-                .addComponent(bttnReporte)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bttnReporte))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -286,6 +296,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bttnReporteActionPerformed
 
+    private void bttnReportePreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnReportePreActionPerformed
+                   try {
+            ReportePrestamo frmReportePreAdd = new ReportePrestamo();
+            frmReportePreAdd.setVisible(true);
+        } catch (Exception ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bttnReportePreActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -324,6 +343,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnDevolucion1;
     private javax.swing.JButton btnLab;
     private javax.swing.JButton bttnReporte;
+    private javax.swing.JButton bttnReportePre;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
