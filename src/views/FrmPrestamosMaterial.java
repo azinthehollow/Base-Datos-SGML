@@ -228,6 +228,7 @@ public class FrmPrestamosMaterial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnChecarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChecarActionPerformed
+        List<Laboratorio> laboratorios = (List<Laboratorio>) Laboratorios.select(OracleUtils.getDBConexion(), "select * from laboratorio", Laboratorio.class);
         BigDecimal idLaboratorio = laboratorios.get(comboLabs.getSelectedIndex()).getIdlaboratorio();
         BigDecimal idMaterial = materiales.get(comboMateriales.getSelectedIndex()).getIdmaterial();
 
